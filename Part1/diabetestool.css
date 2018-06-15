@@ -1,0 +1,48 @@
+/*Author: Alessandro Arosio
+Javascript FMA
+Tutor: Tobi Brodie*/
+
+/* Reset everything to default */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    background: #cccccc url("images/background.jpg"); /* this image has been taken from Google. All rights reserved */
+    font-family: 'Source Code Pro', sans-serif;
+    margin: auto;
+    padding: 2rem;
+}
+
+#diabetes {
+    background-color: #ce3d33;
+    opacity: 0.88;
+    padding: 2.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+h1 {
+    color: #ce3d33;
+}
+
+ul {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+
+li{
+    display: inline-block;
+    padding: 2rem;
+}
+
+legend {
+    float: left;
+    padding: 2rem;
+}

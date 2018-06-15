@@ -7,6 +7,7 @@
     <script src="diabetestool.js"></script>
 </head>
 <body>
+<div class="wrapper">
 <h1>Diabetes risk assessment tool</h1>
 <form id="diabetes" method="post" action="#">
     <fieldset id="question1">
@@ -31,7 +32,7 @@
         </ul>
     </fieldset>
     <fieldset id="question2">
-        <legend>What is your BMI</legend>
+        <legend>What is your BMI?</legend>
         <ul>
             <li>
                 <label for="bmi1">0-25</label>
@@ -93,7 +94,8 @@
             </li>
         </ul>
     </fieldset>
+    <input type="button" value="Calculate" id="submit">
 </form>
-
+</div>
 </body>
 </html>
