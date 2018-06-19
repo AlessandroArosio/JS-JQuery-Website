@@ -29,12 +29,12 @@ h1 {
 }
 
 ul {
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: auto;
+    width: 730px;
 }
 
 li{
@@ -45,4 +45,23 @@ li{
 legend {
     float: left;
     padding: 2rem;
+    width: 338px;
+}
+
+#diabetes input[type="button"]{
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.resultBox {
+    background-color: #ef40e9;
+    opacity: 0.88;
+    padding: 2.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.hidden {
+
 }
