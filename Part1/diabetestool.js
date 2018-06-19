@@ -1,4 +1,5 @@
 // function to grab ID for a given element
+
 function getID(elementId) {
     return document.getElementById(elementId);
 }
@@ -20,4 +21,23 @@ function getClassNames(classElements) {
 
 function calculateRisk() {
     //TODO
+}
+
+// this function will check all the radio buttons to their first value
+function activateRadioButton() {
+    var ageButton = getName("age");
+    ageButton[0].checked = true;
+
+    var bmiButton = getName("bmi");
+    bmiButton[0].checked = true;
+
+    var familyButton = getName("family");
+    familyButton[0].checked = true;
+
+    var dietButton = getName("diet");
+    dietButton[0].checked = true;
+}
+
+window.onload = function () {
+    activateRadioButton();
 }

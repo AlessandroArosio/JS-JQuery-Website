@@ -48,7 +48,7 @@ legend {
     width: 338px;
 }
 
-#diabetes input[type="button"]{
+#diabetes input[type="submit"]{
     padding: 0.7rem;
     border-radius: 8px;
     border: 1px solid black;
