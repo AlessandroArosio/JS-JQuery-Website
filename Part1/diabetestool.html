@@ -15,7 +15,7 @@
             <ul>
                 <li>
                     <label for="age1">1-25</label>
-                    <input type="radio" name="age" id="age1" value="0">
+                    <input type="radio" name="age" id="age1" value="0" checked="checked">
                 </li>
                 <li>
                     <label for="age2">26-40</label>
@@ -36,7 +36,7 @@
             <ul>
                 <li>
                     <label for="bmi1">0-25</label>
-                    <input type="radio" name="bmi" id="bmi1" value="0">
+                    <input type="radio" name="bmi" id="bmi1" value="0" checked="checked">
                 </li>
                 <li>
                     <label for="bmi2">26-30</label>
@@ -57,7 +57,7 @@
             <ul>
                 <li>
                     <label for="family1">No</label>
-                    <input type="radio" name="family" id="family1" value="0">
+                    <input type="radio" name="family" id="family1" value="0" checked="checked">
                 </li>
                 <li>
                     <label for="family2">Grandparent</label>
@@ -78,7 +78,7 @@
             <ul>
                 <li>
                     <label for="diet1">Low sugar</label>
-                    <input type="radio" name="diet" id="diet1" value="0">
+                    <input type="radio" name="diet" id="diet1" value="0" checked="checked">
                 </li>
                 <li>
                     <label for="diet2">Normal sugar</label>
@@ -96,9 +96,9 @@
         </fieldset>
         <input type="submit" value="Calculate" id="submit">
     </form>
-    <aside class="resultBox" id="result">
+    <aside class="hidden" id="result">
         <h2></h2>
-        <p id="risk">Some text</p>
+        <p id="risk"></p>
     </aside>
 </div>
 </body>

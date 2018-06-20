@@ -23,21 +23,32 @@ function calculateRisk() {
     //TODO
 }
 
-// this function will check all the radio buttons to their first value
-function activateRadioButton() {
-    var ageButton = getName("age");
-    ageButton[0].checked = true;
+function getSingleRadioValue(field){
+    var valueOfRadio;
+    var fieldName = getName(field);
+    for (var i = 0; i < fieldName.length; i++){
+        if (fieldName[i].checked) {
+            valueOfRadio = fieldName[i].value;
+            valueOfRadio = parseInt(valueOfRadio);
+            console.log(valueOfRadio);
+        }
+    }
+    return valueOfRadio;
+}
 
-    var bmiButton = getName("bmi");
-    bmiButton[0].checked = true;
-
-    var familyButton = getName("family");
-    familyButton[0].checked = true;
-
-    var dietButton = getName("diet");
-    dietButton[0].checked = true;
+function getTotalRadioValues(){
+    var totalScore = getSingleRadioValue("age");
+    totalScore += getSingleRadioValue("bmi");
+    totalScore += getSingleRadioValue("family");
+    totalScore += getSingleRadioValue("diet");
+    console.log("Total score is " + totalScore);
+    return totalScore;
 }
 
 window.onload = function () {
-    activateRadioButton();
-}
+    document.getElementById("submit").onclick = function (){
+        alert(getTotalRadioValues());
+
+        return false;
+    };
+};

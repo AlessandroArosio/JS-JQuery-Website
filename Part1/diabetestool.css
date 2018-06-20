@@ -55,13 +55,9 @@ legend {
 }
 
 .resultBox {
-    background-color: #ef40e9;
+    background-color: #cc8d18;
     opacity: 0.88;
     padding: 2.5rem;
     margin-top: 1rem;
     font-weight: bold;
-}
-
-.hidden {
-
 }
