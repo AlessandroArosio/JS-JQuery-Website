@@ -17,8 +17,8 @@ html {
 }
 
 #diabetes {
-    background-color: #ce3d33;
-    opacity: 0.88;
+    background-color: #a3331a;
+    opacity: 0.90;
     padding: 2.5rem;
     margin-top: 1rem;
     font-weight: bold;
@@ -48,7 +48,7 @@ legend {
     width: 338px;
 }
 
-#diabetes input[type="submit"]{
+#diabetes input[type="button"]{
     padding: 0.7rem;
     border-radius: 8px;
     border: 1px solid black;
