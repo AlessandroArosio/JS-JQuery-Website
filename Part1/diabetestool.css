@@ -61,3 +61,37 @@ legend {
     margin-top: 1rem;
     font-weight: bold;
 }
+
+/*CONTACT FORM*/
+
+#contactForm {
+    background-image: linear-gradient(to right, lightgray 10%, transparent 100%);
+    margin: 10rem;
+    clear: both;
+}
+
+#contactForm legend {
+    width: 200px;
+    margin: 0;
+    padding: 0rem;
+}
+
+#contactForm fieldset{
+    margin: 0.5rem;
+    padding: 1rem;
+    position: center;
+}
+
+#contactForm input[type="button"]{
+    margin: 2rem;
+    padding: 0.4rem;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.errorMessage {
+    display: inline-block;
+    margin-left: 10px;
+    color: #bc251e;
+    font-weight: bold;
+}

@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ZHA - Contacts form</title>
+    <link rel="stylesheet" type="text/css" href="diabetestool.css">
+    <script src="contactform.js"></script>
 </head>
-<body>
-
-</body>
+<main>
+    <div id="contactPage">
+        <body>
+        <form id="contactForm" method="post" action="#">
+            <fieldset id="field_fName">
+                <legend>First name*</legend>
+                <input type="text" id="firstname">
+                <p class="hidden"></p>
+            </fieldset>
+            <fieldset id="field_lName">
+                <legend>Last name*</legend>
+                <input type="text" id="lastname">
+                <p class="hidden"></p>
+            </fieldset>
+            <fieldset id="field_title">
+                <legend>Select your title*</legend>
+                <select>
+                    <option value="default">Please select your title</option>
+                    <option value="mr">Mr.</option>
+                    <option value="ms">Ms.</option>
+                    <option value="mrs">Mrs.</option>
+                    <option value="miss">Miss</option>
+                    <option value="master">Master</option>
+                </select>
+                <p class="hidden"></p>
+            </fieldset>
+            <fieldset id="field_zha">
+                <legend>Health authority number*</legend>
+                <input type="text" id="zha">
+                <p class="hidden"></p>
+            </fieldset>
+            <fieldset id="field_email">
+                <legend>Email address*</legend>
+                <input type="text" id="email">
+                <p class="hidden"></p>
+            </fieldset>
+            <fieldset id="field_phone">
+                <legend>Telephone number</legend>
+                <input type="text" id="phone">
+            </fieldset>
+            <input type="button" value="Submit" id="submit">
+        </form>
+        </body>
+    </div>
+</main>
 </html>
