@@ -4,6 +4,7 @@ function init() {
     setInitialFocus();
     addPlaceholder("lastname", "e.g. Arosio");
     checkFocus();
+    toolTip();
 }
 
 
@@ -21,5 +22,15 @@ function checkFocus() {
     };
     document.getElementById("lastname").onblur = function () {
         this.setAttribute("placeholder", "e.g. Arosio");
+    };
+}
+
+function toolTip() {
+    var tooltip = document.getElementById("ttip");
+    document.getElementById("qMark").onmouseover = function () {
+        tooltip.setAttribute("class", "tooltip");
+    };
+    document.getElementById("qMark").onmouseout = function () {
+        tooltip.setAttribute("class", "hidden");
     };
 }

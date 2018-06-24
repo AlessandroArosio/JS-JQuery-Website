@@ -95,3 +95,28 @@ legend {
     color: #bc251e;
     font-weight: bold;
 }
+
+.questionMark {
+    background: url("images/questionmark.jpg") no-repeat left;
+    float: top;
+    padding: 1rem;
+    background-size: 30px;
+    position: relative;
+    max-width: 5px;
+}
+
+.tooltip {
+    display: inline-block;
+    float: left;
+    margin-left: 40px;
+    background-color: #187ab2;
+    opacity: 0.70;
+    font-weight: bold;
+    border: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#contactForm .hidden {
+    display: none;
+}
