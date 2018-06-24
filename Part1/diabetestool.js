@@ -3,8 +3,8 @@ function getName(elementName) {
     return document.getElementsByName(elementName);
 }
 
-function calculateRisk() {
-    var score = getTotalRadioValues();
+function calculateRisk(arrayOfValues) {
+    var score = arrayOfValues;
     var sumScore = 0;
     var message;
 
@@ -15,10 +15,10 @@ function calculateRisk() {
 
     if (sumScore > 25) {
         message = "Your results show that you currently have a HIGH risk of " +
-            "developing diabetes. " + highRiskMessage() +
+            "developing diabetes. " + highRiskMessage(arrayOfValues) +
             ". We advise that you contact the Health Authority to " +
             "discuss your risk factors as soon as you can. Please fill in our " +
-            "<a id='contactForm' href='contactform.html'>contact form</a> and a member of the Health Authority Diabetes " +
+            "<a href='contactform.html'>contact form</a> and a member of the Health Authority Diabetes " +
             "Team will be in contact with you.";
     } else if (sumScore > 15) {
         message = "Your results show that you currently have a medium risk of " +
@@ -34,9 +34,9 @@ function calculateRisk() {
 }
 
 // customised message for high risk factor
-function highRiskMessage() {
+function highRiskMessage(arrayOfCheckedValues) {
     var highRiskMessage = "Your main risk factor(s) ";
-    var radioButtonValues = getTotalRadioValues();
+    var radioButtonValues = arrayOfCheckedValues;
     var riskFactor = [];
 
     // creating an array of the highest risk factor(s)
@@ -66,7 +66,7 @@ function highRiskMessage() {
             break;
         case 4:
             highRiskMessage += "are " + riskFactor[0] + ", " + riskFactor[1] +
-               ", " + riskFactor[2] + " and your " + riskFactor[3];
+                ", " + riskFactor[2] + " and your " + riskFactor[3];
             break;
     }
     return highRiskMessage;
@@ -74,8 +74,8 @@ function highRiskMessage() {
 }
 
 // function to show the result box with risk factor and relevant message
-function showResult() {
-    var message = calculateRisk();
+function showResult(riskMessage) {
+    var message = riskMessage;
     document.getElementById("risk").innerHTML = message;
 
     var changeAttribute = document.getElementById("result");
@@ -108,11 +108,13 @@ function getTotalRadioValues(){
 }
 
 function init() {
-    document.getElementById("submit").onclick = function (){
+    document.getElementById("submit").onclick = function () {
         document.getElementById("submit").disabled = true;
-        showResult();
+        var arrayOfValues = getTotalRadioValues();
+        var riskMessage = calculateRisk(arrayOfValues);
+        showResult(riskMessage);
         return false;
-    };
+    }
 }
 
 window.onload = init;
