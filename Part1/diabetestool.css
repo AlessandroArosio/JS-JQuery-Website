@@ -98,17 +98,19 @@ legend {
 
 .questionMark {
     background: url("images/questionmark.jpg") no-repeat left;
-    float: top;
+    float: bottom;
     padding: 1rem;
     background-size: 30px;
     position: relative;
     max-width: 5px;
+    margin-bottom: -20px;
+    margin-left: 23px;
 }
 
 .tooltip {
     display: inline-block;
     float: left;
-    margin-left: 40px;
+    margin-left: 60px;
     background-color: #187ab2;
     opacity: 0.70;
     font-weight: bold;
@@ -119,4 +121,10 @@ legend {
 
 #contactForm .hidden {
     display: none;
+}
+
+#mandatory {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    font-weight: bold;
 }

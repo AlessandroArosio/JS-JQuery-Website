@@ -82,3 +82,9 @@ html {
 #contactForm .hidden {
     display: none;
 }
+
+#mandatory {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
