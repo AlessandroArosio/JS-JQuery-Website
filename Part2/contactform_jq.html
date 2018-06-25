@@ -4,55 +4,54 @@
     <meta charset="UTF-8">
     <title>ZHA - Contact form (jQ)</title>
     <link rel="stylesheet" type="text/css" href="contactform_jq.css">
+    <script src="jquery-1.10.2.min.js"></script>
     <script src="contactform_jq.js"></script>
 </head>
-<main>
-    <div id="contactPage">
-        <body>
-        <form id="contactForm" method="post" action="#">
-            <fieldset id="field_fName">
-                <legend>First name*</legend>
-                <input type="text" id="firstname">
-                <p class="hidden"></p>
-            </fieldset>
-            <fieldset id="field_lName">
-                <legend>Last name*</legend>
-                <input type="text" id="lastname">
-                <p class="hidden"></p>
-            </fieldset>
-            <fieldset id="field_title">
-                <legend>Select your title*</legend>
-                <select>
-                    <option value="default">Please select your title</option>
-                    <option value="mr">Mr.</option>
-                    <option value="ms">Ms.</option>
-                    <option value="mrs">Mrs.</option>
-                    <option value="miss">Miss</option>
-                    <option value="master">Master</option>
-                </select>
-                <p class="hidden"></p>
-            </fieldset>
-            <fieldset id="field_zha">
-                <div class="hidden" id="ttip">If you do not know your ZHA number, please contact your GP</div>
-                <div class="questionMark" id="qMark"></div>
-                <legend>Health authority number*</legend>
-                <input type="text" id="zha">
-                <p class="hidden"></p>
+<body>
+<div id="contactPage">
+    <form id="contactForm" method="post" action="#">
+        <fieldset id="field_fName">
+            <legend>First name*</legend>
+            <input type="text" id="firstname">
+            <p class="hidden"></p>
+        </fieldset>
+        <fieldset id="field_lName">
+            <legend>Last name*</legend>
+            <input type="text" id="lastname">
+            <p class="hidden"></p>
+        </fieldset>
+        <fieldset id="field_title">
+            <legend>Select your title*</legend>
+            <select>
+                <option value="default">Please select your title</option>
+                <option value="mr">Mr.</option>
+                <option value="ms">Ms.</option>
+                <option value="mrs">Mrs.</option>
+                <option value="miss">Miss</option>
+                <option value="master">Master</option>
+            </select>
+            <p class="hidden"></p>
+        </fieldset>
+        <div class="hidden" id="ttip">If you do not know your ZHA number, please contact your GP</div>
+        <div class="questionMark" id="qMark"></div>
+        <fieldset id="field_zha">
+            <legend>Health authority number*</legend>
+            <input type="text" id="zha">
+            <p class="hidden"></p>
 
-            </fieldset>
-            <fieldset id="field_email">
-                <legend>Email address*</legend>
-                <input type="text" id="email">
-                <p class="hidden"></p>
-            </fieldset>
-            <fieldset id="field_phone">
-                <legend>Telephone number</legend>
-                <input type="text" id="phone">
-            </fieldset>
-            <p id="mandatory">* Mandatory fields</p>
-            <input type="button" value="Submit" id="submit">
-        </form>
-        </body>
-    </div>
-</main>
+        </fieldset>
+        <fieldset id="field_email">
+            <legend>Email address*</legend>
+            <input type="text" id="email">
+            <p class="hidden"></p>
+        </fieldset>
+        <fieldset id="field_phone">
+            <legend>Telephone number</legend>
+            <input type="text" id="phone">
+        </fieldset>
+        <p id="mandatory">* Mandatory fields</p>
+        <input type="button" value="Submit" id="submit">
+    </form>
+</div>
+</body>
 </html>
