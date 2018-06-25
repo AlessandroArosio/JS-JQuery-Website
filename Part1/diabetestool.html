@@ -8,100 +8,99 @@
 </head>
 <body>
 <main>
-<div class="wrapper">
-    <h1>Diabetes risk assessment tool</h1>
-    <form id="diabetes" method="post" action="#">
-        <fieldset id="question1">
-            <legend>How old are you?</legend>
-            <ul>
-                <li>
-                    <label for="age1">1-25</label>
-                    <input type="radio" name="age" id="age1" value="0" checked="checked">
-                </li>
-                <li>
-                    <label for="age2">26-40</label>
-                    <input type="radio" name="age" id="age2" value="5">
-                </li>
-                <li>
-                    <label for="age3">41-60</label>
-                    <input type="radio" name="age" id="age3" value="8">
-                </li>
-                <li>
-                    <label for="age4">60+</label>
-                    <input type="radio" name="age" id="age4" value="10">
-                </li>
-            </ul>
-        </fieldset>
-        <fieldset id="question2">
-            <legend>What is your BMI?</legend>
-            <ul>
-                <li>
-                    <label for="bmi1">0-25</label>
-                    <input type="radio" name="bmi" id="bmi1" value="0" checked="checked">
-                </li>
-                <li>
-                    <label for="bmi2">26-30</label>
-                    <input type="radio" name="bmi" id="bmi2" value="0">
-                </li>
-                <li>
-                    <label for="bmi3">31-35</label>
-                    <input type="radio" name="bmi" id="bmi3" value="9">
-                </li>
-                <li>
-                    <label for="bmi4">31-35</label>
-                    <input type="radio" name="bmi" id="bmi4" value="10">
-                </li>
-            </ul>
-        </fieldset>
-        <fieldset id="question3">
-            <legend>Does anybody in your family have diabetes?</legend>
-            <ul>
-                <li>
-                    <label for="family1">No</label>
-                    <input type="radio" name="family" id="family1" value="0" checked="checked">
-                </li>
-                <li>
-                    <label for="family2">Grandparent</label>
-                    <input type="radio" name="family" id="family2" value="7">
-                </li>
-                <li>
-                    <label for="family3">Sibling</label>
-                    <input type="radio" name="family" id="family3" value="15">
-                </li>
-                <li>
-                    <label for="family4">Parent</label>
-                    <input type="radio" name="family" id="family4" value="15">
-                </li>
-            </ul>
-        </fieldset>
-        <fieldset id="question4">
-            <legend>How would you describe your diet?</legend>
-            <ul>
-                <li>
-                    <label for="diet1">Low sugar</label>
-                    <input type="radio" name="diet" id="diet1" value="0" checked="checked">
-                </li>
-                <li>
-                    <label for="diet2">Normal sugar</label>
-                    <input type="radio" name="diet" id="diet2" value="0">
-                </li>
-                <li>
-                    <label for="diet3">Quite high sugar?</label>
-                    <input type="radio" name="diet" id="diet3" value="7">
-                </li>
-                <li>
-                    <label for="diet4">High sugar</label>
-                    <input type="radio" name="diet" id="diet4" value="10">
-                </li>
-            </ul>
-        </fieldset>
-        <input type="button" value="Calculate" id="submit">
-    </form>
-    <aside class="hidden" id="result">
-        <h2></h2>
-        <p id="risk"></p>
-    </aside>
-</div>
+    <div class="wrapper">
+        <h1>Diabetes risk assessment tool</h1>
+        <form id="diabetes" method="post" action="#">
+            <fieldset id="question1">
+                <legend>How old are you?</legend>
+                <ul>
+                    <li>
+                        <label for="age1">1-25</label>
+                        <input type="radio" name="age" id="age1" value="0" checked="checked">
+                    </li>
+                    <li>
+                        <label for="age2">26-40</label>
+                        <input type="radio" name="age" id="age2" value="5">
+                    </li>
+                    <li>
+                        <label for="age3">41-60</label>
+                        <input type="radio" name="age" id="age3" value="8">
+                    </li>
+                    <li>
+                        <label for="age4">60+</label>
+                        <input type="radio" name="age" id="age4" value="10">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset id="question2">
+                <legend>What is your BMI?</legend>
+                <ul>
+                    <li>
+                        <label for="bmi1">0-25</label>
+                        <input type="radio" name="bmi" id="bmi1" value="0" checked="checked">
+                    </li>
+                    <li>
+                        <label for="bmi2">26-30</label>
+                        <input type="radio" name="bmi" id="bmi2" value="0">
+                    </li>
+                    <li>
+                        <label for="bmi3">31-35</label>
+                        <input type="radio" name="bmi" id="bmi3" value="9">
+                    </li>
+                    <li>
+                        <label for="bmi4">31-35</label>
+                        <input type="radio" name="bmi" id="bmi4" value="10">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset id="question3">
+                <legend>Does anybody in your family have diabetes?</legend>
+                <ul>
+                    <li>
+                        <label for="family1">No</label>
+                        <input type="radio" name="family" id="family1" value="0" checked="checked">
+                    </li>
+                    <li>
+                        <label for="family2">Grandparent</label>
+                        <input type="radio" name="family" id="family2" value="7">
+                    </li>
+                    <li>
+                        <label for="family3">Sibling</label>
+                        <input type="radio" name="family" id="family3" value="15">
+                    </li>
+                    <li>
+                        <label for="family4">Parent</label>
+                        <input type="radio" name="family" id="family4" value="15">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset id="question4">
+                <legend>How would you describe your diet?</legend>
+                <ul>
+                    <li>
+                        <label for="diet1">Low sugar</label>
+                        <input type="radio" name="diet" id="diet1" value="0" checked="checked">
+                    </li>
+                    <li>
+                        <label for="diet2">Normal sugar</label>
+                        <input type="radio" name="diet" id="diet2" value="0">
+                    </li>
+                    <li>
+                        <label for="diet3">Quite high sugar?</label>
+                        <input type="radio" name="diet" id="diet3" value="7">
+                    </li>
+                    <li>
+                        <label for="diet4">High sugar</label>
+                        <input type="radio" name="diet" id="diet4" value="10">
+                    </li>
+                </ul>
+            </fieldset>
+            <input type="button" value="Calculate" id="submit">
+        </form>
+        <aside class="hidden" id="result">
+            <p id="risk"></p>
+        </aside>
+    </div>
 </main>
 </body>
 </html>
