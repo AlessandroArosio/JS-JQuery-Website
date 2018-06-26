@@ -48,10 +48,11 @@ legend {
     width: 338px;
 }
 
-#diabetes input[type="button"]{
+#submit{
     padding: 0.7rem;
     border-radius: 8px;
     border: 1px solid black;
+    margin: 2rem;
 }
 
 .resultBox {
@@ -60,6 +61,18 @@ legend {
     padding: 2.5rem;
     margin-top: 1rem;
     font-weight: bold;
+}
+
+#errorMessage {
+    margin-left: 10px;
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.defaultText {
+    color: gray;
+    font-style: italic;
 }
 
 /*CONTACT FORM*/
@@ -113,6 +126,7 @@ legend {
     background-color: #187ab2;
     opacity: 0.70;
     font-weight: bold;
+    font-style: italic;
     border: 1px solid black;
     padding-left: 5px;
     padding-right: 5px;

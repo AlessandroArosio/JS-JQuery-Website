@@ -11,12 +11,12 @@
     <form id="contactForm" method="post" action="#">
         <fieldset id="field_fName">
             <legend>First name*</legend>
-            <input type="text" id="firstname">
-            <p class="hidden"></p>
+            <input type="text" id="firstname" class="defaultText" value="">
+            <span class="errorMessage"></span>
         </fieldset>
         <fieldset id="field_lName">
             <legend>Last name*</legend>
-            <input type="text" id="lastname">
+            <input type="text" id="lastname" class="defaultText" value="">
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_title">
@@ -35,21 +35,21 @@
         <div class="questionMark" id="qMark"></div>
         <fieldset id="field_zha">
             <legend>Health authority number*</legend>
-            <input type="text" id="zha">
+            <input type="text" id="zha" class="defaultText" value="">
             <p class="hidden"></p>
 
         </fieldset>
         <fieldset id="field_email">
             <legend>Email address*</legend>
-            <input type="text" id="email">
+            <input type="text" id="email" class="defaultText" value="">
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_phone">
             <legend>Telephone number</legend>
-            <input type="text" id="phone">
+            <input type="text" id="phone" class="defaultText" value="">
         </fieldset>
         <p id="mandatory">* Mandatory fields</p>
-        <input type="button" value="Submit" id="submit">
+        <input type="submit" value="Submit" id="submit">
     </form>
 </div>
 </body>
