@@ -3,8 +3,7 @@ $(document).ready(function () {
 
     setFocus();
     tooltip();
-    setPlaceholder("#zha", "ZHA123456");
-    checkFocus();
+    textHint("#zha", "ZHA123456");
     // validateData() ???
     errors = checkErrors();
     submitForm(errors);
@@ -30,20 +29,30 @@ function setFocus() {
 }
 
 // function to set one placeholder
-function setPlaceholder(element, message) {
-    $(element).attr('placeholder', message);
+function textHint(element, defaultText) {
+    $(element).attr('class', "defaultText");
+    $(element).attr('value', defaultText);
+    setDefaultText(element, defaultText);
 }
 
 // combined function that makes a placeholder message appear/disappear depending on the input box,
 // whether it is active or not. If the user does not type anything and clicks on another box,
 // the placeholder message is restored.
-function checkFocus() {
-    $('#zha').bind({
+function setDefaultText(element, defaultMessage) {
+    $(element).bind({
         'focus' : function () {
-            $('#zha').attr('placeholder', "")
+            if (this.value === defaultMessage) {
+                $(element).attr('class', "normalText");
+                this.value = "";
+            }
         },
         'blur' : function () {
-            $('#zha').attr('placeholder', 'ZHA123456');
+            if (this.value === defaultMessage) {
+                $(element).attr('class', 'defaultText');
+            } else if (this.value === "") {
+                $(element).attr('class', 'defaultText');
+                this.value = defaultMessage;
+            }
         }
     });
 }

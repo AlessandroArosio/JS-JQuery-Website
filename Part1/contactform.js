@@ -5,7 +5,7 @@ function init() {
     textHint("zha", "ZHA123456");
     textHint("phone", "11 digits only");
     toolTip();
-    // checkErrorMessage("firstname", 2);
+    checkErrorMessage("firstname", 2);
     // checkErrorMessage('lastname', 2);
 }
 
@@ -71,7 +71,7 @@ function checkErrorMessage(element, length){
         else if (elementValue.length < length) {
             errorMessage = "The name is too short. Minimum length 2 characters";
         }
-        document.getElementById("errorMessage").innerHTML = errorMessage
+        document.getElementById("errorMessage").innerHTML = errorMessage;
     };
     document.getElementById(element).onfocus = function () {
         document.getElementById('errorMessage').innerHTML = "";

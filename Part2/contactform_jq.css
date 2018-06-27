@@ -87,3 +87,8 @@ html {
     margin-top: 1rem;
     font-weight: bold;
 }
+
+.defaultText {
+    color: gray;
+    font-style: italic;
+}

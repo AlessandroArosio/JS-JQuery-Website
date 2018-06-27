@@ -48,7 +48,7 @@ legend {
     width: 338px;
 }
 
-#submit{
+#diabetes input[type="submit"]{
     padding: 0.7rem;
     border-radius: 8px;
     border: 1px solid black;
@@ -94,7 +94,7 @@ legend {
     padding: 1rem;
 }
 
-#contactForm input[type="button"]{
+#contactForm input[type="submit"]{
     margin: 2rem;
     padding: 0.4rem;
     border-radius: 4px;

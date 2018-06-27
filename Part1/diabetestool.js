@@ -109,7 +109,7 @@ function getTotalRadioValues(){
 
 function init() {
     document.getElementById("submit").onclick = function () {
-        document.getElementById("submit").disabled = true;
+        // document.getElementById("submit").disabled = true;
         var arrayOfValues = getTotalRadioValues();
         var riskMessage = calculateRisk(arrayOfValues);
         showResult(riskMessage);
