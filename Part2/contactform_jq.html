@@ -12,18 +12,17 @@
     <form id="contactForm" method="post" action="#">
         <fieldset id="field_fName">
             <legend>First name*</legend>
-            <input type="text" id="firstname">
+            <input type="text" id="firstname" class="normalText" value="">
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_lName">
             <legend>Last name*</legend>
-            <input type="text" id="lastname">
+            <input type="text" id="lastname" class="normalText" value="">
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_title">
             <legend>Select your title*</legend>
             <select>
-                <option value="default">Please select your title</option>
                 <option value="mr">Mr.</option>
                 <option value="ms">Ms.</option>
                 <option value="mrs">Mrs.</option>
@@ -36,18 +35,18 @@
         <div class="questionMark" id="qMark"></div>
         <fieldset id="field_zha">
             <legend>Health authority number*</legend>
-            <input type="text" id="zha">
+            <input type="text" id="zha" class="normalText" value="">
             <p class="hidden"></p>
 
         </fieldset>
         <fieldset id="field_email">
             <legend>Email address*</legend>
-            <input type="text" id="email">
+            <input type="text" id="email" class="normalText" value="">
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_phone">
             <legend>Telephone number</legend>
-            <input type="text" id="phone">
+            <input type="text" id="phone" class="normalText" value="">
         </fieldset>
         <p id="mandatory">* Mandatory fields</p>
         <input type="button" value="Submit" id="submit">

@@ -9,20 +9,20 @@
 <body>
 <div id="contactPage">
     <form id="contactForm" method="post" action="#">
-        <fieldset id="field_fName">
+        <fieldset id="field_firstname">
             <legend>First name*</legend>
-            <input type="text" id="firstname" class="defaultText" value="">
+            <input type="text" id="firstname" class="normalText" value="">
             <span class="errorMessage"></span>
         </fieldset>
-        <fieldset id="field_lName">
+        <fieldset id="field_lastname">
             <legend>Last name*</legend>
-            <input type="text" id="lastname" class="defaultText" value="">
+            <input type="text" id="lastname" class="normalText" value="">
+            <span class="errorMessage"></span>
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_title">
             <legend>Select your title*</legend>
-            <select>
-                <option value="default">Please select your title</option>
+            <select id="title">
                 <option value="mr">Mr.</option>
                 <option value="ms">Ms.</option>
                 <option value="mrs">Mrs.</option>
@@ -35,18 +35,21 @@
         <div class="questionMark" id="qMark"></div>
         <fieldset id="field_zha">
             <legend>Health authority number*</legend>
-            <input type="text" id="zha" class="defaultText" value="">
+            <input type="text" id="zha" class="normalText" value="">
+            <span class="errorMessage"></span>
             <p class="hidden"></p>
-
         </fieldset>
         <fieldset id="field_email">
             <legend>Email address*</legend>
-            <input type="text" id="email" class="defaultText" value="">
+            <input type="text" id="email" class="normalText" value="">
+            <span class="errorMessage"></span>
             <p class="hidden"></p>
         </fieldset>
         <fieldset id="field_phone">
             <legend>Telephone number</legend>
-            <input type="text" id="phone" class="defaultText" value="">
+            <input type="text" id="phone" class="normalText" value="">
+            <span class="errorMessage"></span>
+            <p class="hidden"></p>
         </fieldset>
         <p id="mandatory">* Mandatory fields</p>
         <input type="submit" value="Submit" id="submit">
