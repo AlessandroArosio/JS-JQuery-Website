@@ -2,7 +2,8 @@ window.onload = init;
 
 function init() {
     setInitialFocus();
-    focusBlurDefaultText("zha", "ZHA123456");
+    setDefaultText("zha", "e.g. ZHA123456");
+    setDefaultText("phone", "Only 11 digits allowed");
     toolTip();
     formErrorsCheck();
     submitForm();
@@ -17,7 +18,7 @@ function setInitialFocus() {
  *   If the user leaves the box empty, the message reappears.
  *   @param element : element to be modified
  *   @param message : message to be displayed in the placeholder*/
-function focusBlurDefaultText(element, defaultMessage) {
+function setDefaultText(element, defaultMessage) {
     document.getElementById(element).setAttribute("class", "defaultText");
     document.getElementById(element).setAttribute("value", defaultMessage);
     document.getElementById(element).onfocus = function () {
@@ -60,80 +61,61 @@ function formErrorsCheck() {
     validZha();
 }
 
+// ***** fully working and tested *******
+// function to show an error message if the input box is empty or does not meet the required length.
+function nameErrorMessage(element, minimumLength){
+    var defaultMessage = checkForDefaultText(element);
+    var errorMessage = "";
+    document.getElementById(element).onblur = function() {
+        var validName = validate(element);
+
+        if (this.value === defaultMessage && this.value.length > 0){
+            document.getElementById(element).setAttribute("class", "defaultText");
+        }
+        else if (this.value == ""){
+            document.getElementById(element).setAttribute("class", "defaultText");
+            errorMessage = "Mandatory field, cannot be left empty";
+            this.value = defaultMessage;
+
+        }
+        else if (this.value.length < minimumLength) {
+            errorMessage = "Minimum length " + minimumLength + " characters";
+        }
+        else if (!validName) {
+            errorMessage = "Invalid field. Some characters are not allowed";
+        } else {
+            document.getElementById(element).setAttribute("class", "normalText");
+            errorMessage = "";
+        }
+        var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
+        elementTarget.innerHTML = errorMessage;
+    };
+    document.getElementById(element).onfocus = function () {
+        var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
+        elementTarget.innerHTML = "";
+        if (this.value === defaultMessage) {
+            document.getElementById(element).setAttribute("class", "normalText");
+            this.value = "";
+        }
+    }
+}
+
+// ****** fully working and tested *******
 function validTitle(){
     var title = document.getElementById("title").value;
 
     switch (title) {
         // to do in case the return -1 doesn't work
-            // by value it takes the lowercase one
+        // by value it takes the lowercase one
     }
     return title != -1;
 }
 
-function validEmail() {
-    document.getElementById('email').onblur = function () {
-        var elementValue = document.getElementById('email').value;
-        var errorMessage = "";
-        var validEmail = validate("email");
-
-        if (elementValue == "") {
-            errorMessage = "Mandatory field, cannot be left empty";
-        }
-        else if (!validEmail) {
-            errorMessage = "Email is incorrect";
-        }
-        var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
-        elementTarget.innerHTML = errorMessage;
-    };
-    document.getElementById('email').onfocus = function () {
-        var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
-        elementTarget.innerHTML = "";
-    };
-}
-
-function validPhone() {
-    var element = "phone";
-    var defaultMessage = "11 digits only";
-
-    document.getElementById(element).setAttribute("class", "defaultText");
-    document.getElementById(element).setAttribute("value", defaultMessage);
-
-    document.getElementById(element).onfocus = function () {
-        var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
-        elementPhone.innerHTML = "";
-        if (this.value === defaultMessage) {
-            document.getElementById(element).setAttribute("class", "normalText");
-            this.value = "";
-        }
-    };
-
-    document.getElementById(element).onblur = function () {
-        var phoneNumber = document.getElementById("phone").value;
-        var errorMessage = "";
-        var validPhone = validate(element);
-
-        if (this.value === defaultMessage) {
-            document.getElementById(element).setAttribute("class", "defaultText");
-        }
-        else if (this.value === "") {
-            document.getElementById(element).setAttribute("class", "defaultText");
-            this.value = defaultMessage;
-        }
-
-
-        if (!phoneNumber == "" || !validPhone) {
-            errorMessage = "Invalid number";
-        }
-        var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
-        elementPhone.innerHTML = errorMessage;
-    };
-}
-
+// ****** fully working and tested *******
 function validZha() {
     var element = "zha";
-    var defaultMessage = "ZHA123456";
-    document.getElementById(element).setAttribute("class", "defaultText");
-    document.getElementById(element).setAttribute("value", defaultMessage);
+    var defaultMessage = checkForDefaultText(element);
+
 
     document.getElementById(element).onfocus = function () {
         var elementZha = document.getElementById("field_"+element).getElementsByClassName("errorMessage")[0];
@@ -145,6 +127,9 @@ function validZha() {
     };
 
     document.getElementById(element).onblur = function () {
+        var validZha = validate(element);
+        var errorMessage = "";
+
         if (this.value === defaultMessage) {
             document.getElementById(element).setAttribute("class", "defaultText");
         }
@@ -153,8 +138,6 @@ function validZha() {
             this.value = defaultMessage;
         }
 
-        var validZha = validate(element);
-        var errorMessage = "";
         if (!validZha) {
             errorMessage = "Invalid number. It starts with \'ZHA\' followed by 6 numbers";
         }
@@ -163,6 +146,77 @@ function validZha() {
     };
 }
 
+// ****** fully working and tested *******
+function validEmail() {
+    var element = "email";
+    var defaultMessage = checkForDefaultText(element);
+    document.getElementById(element).onblur = function () {
+        var errorMessage = "";
+        var validEmail = validate(element);
+
+        if (this.value === defaultMessage && this.value > 0) {
+            document.getElementById(element).setAttribute("class", "defaultText");
+        }
+        else if (this.value == "") {
+            document.getElementById(element).setAttribute("class", "defaultText");
+            this.value = defaultMessage;
+            errorMessage = "Mandatory field, cannot be left empty";
+        }
+
+        else if (!validEmail) {
+            errorMessage = "Email is incorrect";
+        }
+        var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
+        elementTarget.innerHTML = errorMessage;
+    };
+    document.getElementById(element).onfocus = function () {
+        var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
+        elementTarget.innerHTML = "";
+        if (this.value === defaultMessage) {
+            document.getElementById(element).setAttribute("class", "normalText");
+            this.value = "";
+        }
+    };
+}
+
+// ****** fully working and tested *******
+function validPhone() {
+    var element = "phone";
+    var defaultMessage = checkForDefaultText(element);
+
+    document.getElementById(element).onblur = function () {
+        var errorMessage = "";
+        var validPhone = validate(element);
+
+        if (this.value === defaultMessage) {
+            document.getElementById(element).setAttribute("class", "defaultText");
+        }
+        else if (this.value === "") {
+            document.getElementById(element).setAttribute("class", "defaultText");
+            this.value = defaultMessage;
+        }
+        else if (!validPhone) {
+            errorMessage = "Invalid number";
+        }
+        else if (this.value == ""){
+            errorMessage = "";
+        }
+
+        var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
+        elementPhone.innerHTML = errorMessage;
+    };
+
+    document.getElementById(element).onfocus = function () {
+        var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
+        elementPhone.innerHTML = "";
+        if (this.value === defaultMessage) {
+            document.getElementById(element).setAttribute("class", "normalText");
+            this.value = "";
+        }
+    };
+}
+
+
 function submitForm(){
     document.getElementById("submit").onclick = function () {
         var firstname = validate("firstname");
@@ -170,47 +224,40 @@ function submitForm(){
         var title = validTitle();
         var validZha = validate("zha");
         var email = validate("email");
-        var phone = validate("phone") || document.getElementById("phone").value === 0;
+        var phone = validate("phone") || document.getElementById("phone").value === "";
         var collectionOfErrors = [firstname,
-                lastname,
-                title,
-                validZha,   // if default text is there, it returns true;
-                email,
-                phone       // if default text is there, it returns true;
-            ];
-        console.log(collectionOfErrors.toString());
+            lastname,
+            title,
+            validZha,
+            email,
+            phone];
+        var collectionOfFields = ["firstname",
+            "lastname",
+            "title",
+            "zha",
+            "email",
+            "phone"];
+
+        for (var i = 0; i < collectionOfErrors.length; i++){
+            if (!collectionOfErrors[i] && i != 2) {
+                var spanMessage = document.getElementById("field_" + collectionOfFields[i]).getElementsByClassName("errorMessage")[0];
+                spanMessage.innerHTML = "Please check this field";
+            }
+        }
+
+
         if (collectionOfErrors.includes(false)){
-            alert("error in the form\n" +
-                collectionOfErrors.toString());
+            document.getElementById("formOK").setAttribute("class", "errorMessage");
+            document.getElementById("formOK").innerHTML = "There are errors in the form";
+            return false;
+        } else {
+            document.getElementById("formOK").setAttribute("class", "okMessage");
+            document.getElementById("formOK").innerHTML = "Thank you, we will be in touch."
+            return false;
         }
-        return false;
     }
 }
 
-// function to show an error message if the input box is empty or does not meet the required length.
-function nameErrorMessage(element, length){
-    document.getElementById(element).onblur = function() {
-        var elementValue = document.getElementById(element).value;
-        var errorMessage = "";
-        var validInput = validate(element);
-
-        if (elementValue == ""){
-            errorMessage = "Mandatory field, cannot be left empty";
-        }
-        else if (elementValue.length < length) {
-            errorMessage = "Minimum length " + length + " characters";
-        }
-        else if (!validInput) {
-            errorMessage = "Invalid field. Some characters are not allowed";
-        }
-        var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
-        elementTarget.innerHTML = errorMessage;
-    };
-    document.getElementById(element).onfocus = function () {
-        var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
-        elementTarget.innerHTML = "";
-    }
-}
 
 function validate(element) {
     var regEx;
@@ -229,11 +276,20 @@ function validate(element) {
             regEx = /^\d[0-9]{10}$/;
             break;
         case "zha":
-            regEx = /([zZ][hH][aA])[0-9]{6}$/;
+            regEx = /(^[zZ][hH][aA])[0-9]{6}$/;
             break;
         default:
-            console.log("Default case in switch statement");
             return false;
     }
     return regEx.test(id.value);
+}
+
+
+function checkForDefaultText(element){
+    var defaultMessage = "";
+
+    if (document.getElementById(element).value != 0){
+        defaultMessage = document.getElementById(element).value;
+    }
+    return defaultMessage;
 }

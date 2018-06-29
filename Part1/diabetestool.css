@@ -141,3 +141,10 @@ legend {
     margin-top: 1rem;
     font-weight: bold;
 }
+
+.okMessage {
+    display: inline-block;
+    margin-left: 10px;
+    color: green;
+    font-weight: bold;
+}
