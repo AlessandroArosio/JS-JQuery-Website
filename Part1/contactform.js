@@ -61,14 +61,18 @@ function formErrorsCheck() {
     validZha();
 }
 
-// ***** fully working and tested *******
-// function to show an error message if the input box is empty or does not meet the required length.
+
+/*function to show an error message if the input box is empty or does not meet the required length.
+* @param element : element to be checked
+* @param minimumLength : minimum length of the string*/
+
 function nameErrorMessage(element, minimumLength){
-    var defaultMessage = checkForDefaultText(element);
+    var defaultMessage = checkForDefaultText(element);      // checking for default text
     var errorMessage = "";
+
+    // OnBlur to check whether the user input is valid. If the test fails, an appropriate message appears in the form
     document.getElementById(element).onblur = function() {
         var validName = validate(element);
-
         if (this.value === defaultMessage && this.value.length > 0){
             document.getElementById(element).setAttribute("class", "defaultText");
         }
@@ -76,7 +80,6 @@ function nameErrorMessage(element, minimumLength){
             document.getElementById(element).setAttribute("class", "defaultText");
             errorMessage = "Mandatory field, cannot be left empty";
             this.value = defaultMessage;
-
         }
         else if (this.value.length < minimumLength) {
             errorMessage = "Minimum length " + minimumLength + " characters";
@@ -90,6 +93,8 @@ function nameErrorMessage(element, minimumLength){
         var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
         elementTarget.innerHTML = errorMessage;
     };
+
+    // OnFocus to clear error messages and default value if present.
     document.getElementById(element).onfocus = function () {
         var elementTarget = document.getElementById('field_'+element).getElementsByClassName("errorMessage")[0];
         elementTarget.innerHTML = "";
@@ -100,23 +105,18 @@ function nameErrorMessage(element, minimumLength){
     }
 }
 
-// ****** fully working and tested *******
+// Function to return the value from the drop-down menu
 function validTitle(){
     var title = document.getElementById("title").value;
-
-    switch (title) {
-        // to do in case the return -1 doesn't work
-        // by value it takes the lowercase one
-    }
     return title != -1;
 }
 
-// ****** fully working and tested *******
+/* Function to check whether a default text is set and check the validity of the user input*/
 function validZha() {
     var element = "zha";
     var defaultMessage = checkForDefaultText(element);
 
-
+    // OnFocus: to clear error messages and default text (if entered)
     document.getElementById(element).onfocus = function () {
         var elementZha = document.getElementById("field_"+element).getElementsByClassName("errorMessage")[0];
         elementZha.innerHTML = "";
@@ -126,6 +126,7 @@ function validZha() {
         }
     };
 
+    // OnBlur: check whether the ZHA number is correct. If not, an appropriate error message appears
     document.getElementById(element).onblur = function () {
         var validZha = validate(element);
         var errorMessage = "";
@@ -137,7 +138,6 @@ function validZha() {
             document.getElementById(element).setAttribute("class", "defaultText");
             this.value = defaultMessage;
         }
-
         if (!validZha) {
             errorMessage = "Invalid number. It starts with \'ZHA\' followed by 6 numbers";
         }
@@ -146,10 +146,12 @@ function validZha() {
     };
 }
 
-// ****** fully working and tested *******
+// Function to check whether a default text is set and check the validity of the user input
 function validEmail() {
     var element = "email";
     var defaultMessage = checkForDefaultText(element);
+
+    // OnBlur: check whether the email address is correct. If not, an appropriate error message appears
     document.getElementById(element).onblur = function () {
         var errorMessage = "";
         var validEmail = validate(element);
@@ -162,13 +164,14 @@ function validEmail() {
             this.value = defaultMessage;
             errorMessage = "Mandatory field, cannot be left empty";
         }
-
         else if (!validEmail) {
             errorMessage = "Email is incorrect";
         }
         var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
         elementTarget.innerHTML = errorMessage;
     };
+
+    // OnFocus: to clear error messages and default text (if entered)
     document.getElementById(element).onfocus = function () {
         var elementTarget = document.getElementById('field_email').getElementsByClassName("errorMessage")[0];
         elementTarget.innerHTML = "";
@@ -179,11 +182,13 @@ function validEmail() {
     };
 }
 
-// ****** fully working and tested *******
+/* This function checks whether the phone number is valid.
+* This field is not mandatory. Either an empty value or a correct 11 digits number is valid.*/
 function validPhone() {
     var element = "phone";
     var defaultMessage = checkForDefaultText(element);
 
+    // OnBlur: check whether the phone number is correct. If not, an appropriate error message appears
     document.getElementById(element).onblur = function () {
         var errorMessage = "";
         var validPhone = validate(element);
@@ -201,11 +206,11 @@ function validPhone() {
         else if (this.value == ""){
             errorMessage = "";
         }
-
         var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
         elementPhone.innerHTML = errorMessage;
     };
 
+    // OnFocus: to clear error messages and default text (if entered)
     document.getElementById(element).onfocus = function () {
         var elementPhone = document.getElementById("field_phone").getElementsByClassName("errorMessage")[0];
         elementPhone.innerHTML = "";
@@ -216,49 +221,10 @@ function validPhone() {
     };
 }
 
-
-function submitForm(){
-    document.getElementById("submit").onclick = function () {
-        var firstname = validate("firstname");
-        var lastname = validate("lastname");
-        var title = validTitle();
-        var validZha = validate("zha");
-        var email = validate("email");
-        var phone = validate("phone") || document.getElementById("phone").value === "";
-        var collectionOfErrors = [firstname,
-            lastname,
-            title,
-            validZha,
-            email,
-            phone];
-        var collectionOfFields = ["firstname",
-            "lastname",
-            "title",
-            "zha",
-            "email",
-            "phone"];
-
-        for (var i = 0; i < collectionOfErrors.length; i++){
-            if (!collectionOfErrors[i] && i != 2) {
-                var spanMessage = document.getElementById("field_" + collectionOfFields[i]).getElementsByClassName("errorMessage")[0];
-                spanMessage.innerHTML = "Please check this field";
-            }
-        }
-
-
-        if (collectionOfErrors.includes(false)){
-            document.getElementById("formOK").setAttribute("class", "errorMessage");
-            document.getElementById("formOK").innerHTML = "There are errors in the form";
-            return false;
-        } else {
-            document.getElementById("formOK").setAttribute("class", "okMessage");
-            document.getElementById("formOK").innerHTML = "Thank you, we will be in touch."
-            return false;
-        }
-    }
-}
-
-
+/* This function tests the user input against a regular expression. If the value to be checked matches the criteria,
+* a boolean "true" is returned, "false" otherwise.
+* param element : element to be checked.
+* return boolean : true for ok, false if not */
 function validate(element) {
     var regEx;
     var id = document.getElementById(element);
@@ -284,7 +250,56 @@ function validate(element) {
     return regEx.test(id.value);
 }
 
+/* This function is triggered only if the use hits the submit button.
+* It performs all data validation. Once a field is checked, a boolean value is assigned to that field.
+* When all the fields are checked, all their values are pushed into an array. This array will be then checked
+* for "false" values, and when a match is found, an error message is shown in the form next to the relevant field*/
+function submitForm(){
+    document.getElementById("submit").onclick = function () {
+        var firstname = validate("firstname");
+        var lastname = validate("lastname");
+        var title = validTitle();
+        var validZha = validate("zha");
+        var email = validate("email");
+        var phone = validate("phone") || document.getElementById("phone").value === "";
+        var collectionOfErrors = [firstname,
+            lastname,
+            title,
+            validZha,
+            email,
+            phone];
+        var collectionOfFields = ["firstname",
+            "lastname",
+            "title",
+            "zha",
+            "email",
+            "phone"];
 
+        // checking presence of errors in the array.
+        for (var i = 0; i < collectionOfErrors.length; i++){
+            if (!collectionOfErrors[i] && i != 2) {
+                var spanMessage = document.getElementById("field_" + collectionOfFields[i]).getElementsByClassName("errorMessage")[0];
+                spanMessage.innerHTML = "Please check this field";
+            }
+        }
+
+        // Last step: if the array contains at least on "false" value, an error message is shown next to the submit button
+        if (collectionOfErrors.includes(false)){
+            document.getElementById("formOK").setAttribute("class", "errorMessage");
+            document.getElementById("formOK").innerHTML = "There are errors in the form";
+            return false;
+        } else {        // if no "false" values in the array, a message will confirm the correct submission of the form
+            document.getElementById("formOK").setAttribute("class", "okMessage");
+            document.getElementById("formOK").innerHTML = "Thank you, we will be in touch."
+            return false;
+        }
+    }
+}
+
+/* helper function to test whether a default text has been selected for the given element
+  (using the function setDefaultText() )
+  @param element : element to be checked
+  @return string : return the value of that element */
 function checkForDefaultText(element){
     var defaultMessage = "";
 
