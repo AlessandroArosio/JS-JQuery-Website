@@ -61,7 +61,6 @@ function formErrorsCheck() {
     validZha();
 }
 
-
 /*function to show an error message if the input box is empty or does not meet the required length.
 * @param element : element to be checked
 * @param minimumLength : minimum length of the string*/
@@ -223,6 +222,8 @@ function validPhone() {
 
 /* This function tests the user input against a regular expression. If the value to be checked matches the criteria,
 * a boolean "true" is returned, "false" otherwise.
+* Some of the below expression are taken from stack overflow and google,
+* slightly changed by myself meet the criteria of validation for my form.
 * param element : element to be checked.
 * return boolean : true for ok, false if not */
 function validate(element) {

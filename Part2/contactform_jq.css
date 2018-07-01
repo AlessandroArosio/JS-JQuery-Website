@@ -41,7 +41,7 @@ html {
     padding: 0.3rem;
 }
 
-#contactForm input[type="button"]{
+#contactForm input[type="submit"]{
     margin: 2rem;
     padding: 0.4rem;
     border-radius: 4px;
@@ -53,6 +53,18 @@ html {
     margin-left: 10px;
     color: #bc251e;
     font-weight: bold;
+}
+
+#errorMessage {
+    margin-left: 10px;
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.defaultText {
+    color: gray;
+    font-style: italic;
 }
 
 .questionMark {
@@ -91,4 +103,11 @@ html {
 .defaultText {
     color: gray;
     font-style: italic;
+}
+
+.okMessage {
+    display: inline-block;
+    margin-left: 10px;
+    color: green;
+    font-weight: bold;
 }
