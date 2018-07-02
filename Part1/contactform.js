@@ -64,7 +64,6 @@ function formErrorsCheck() {
 /*function to show an error message if the input box is empty or does not meet the required length.
 * @param element : element to be checked
 * @param minimumLength : minimum length of the string*/
-
 function nameErrorMessage(element, minimumLength){
     var defaultMessage = checkForDefaultText(element);      // checking for default text
     var errorMessage = "";
